@@ -1,0 +1,27 @@
+#!/bin/bash
+
+export oldmd5=$(echo `md5sum /home/pi/discordbotrun/index.js` | awk '{print $1}')
+
+node /home/pi/discordbotrun/index.js > /home/pi/discordbotrun/error.log 2>&1 &
+sleep 3
+node /home/pi/discordbotrun/error.js &
+
+while true; do
+	
+	git -C /home/pi/discordbot/ pull
+
+	export indexmd5=$(echo `md5sum /home/pi/discordbot/index.js` | awk '{print $1}')
+	if [ "$indexmd5" != "$oldmd5" ];
+	then
+		echo "Changed"
+		kill -9 `pidof node /home/pi/discordbotrun/index.js`
+		cp /home/pi/discordbot/index.js /home/pi/discordbotrun/
+		node /home/pi/discordbotrun/index.js > /home/pi/discordbotrun/error.log 2>&1 &
+		export oldmd5=`echo "$indexmd5"`
+
+		sleep 3
+		node /home/pi/discordbotrun/error.js &
+	fi
+
+	sleep 27
+done

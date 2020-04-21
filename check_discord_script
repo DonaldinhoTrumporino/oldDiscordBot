@@ -1,0 +1,11 @@
+#!/bin/bash
+
+numrun=`ps -aux | grep "/home/pi/discordbotrun/discordstartup" | wc -l`
+
+if [ $numrun -ge 2 ]
+then
+	echo "Already Running: $numrun"
+else
+	echo "Starting new process"
+	/home/pi/discordbotrun/discordstartup &
+fi

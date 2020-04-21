@@ -1,0 +1,30 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonaldinhoTrumporino/discordbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DonaldinhoTrumporino/discordbot/issues"
+  },
+  "homepage": "https://github.com/DonaldinhoTrumporino/discordbot#readme",
+  "dependencies": {
+    "@discordjs/opus": "^0.1.0",
+    "discord.js": "^12.2.0",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.1.1",
+    "opusscript": "0.0.7",
+    "random": "^2.2.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {}
+}
